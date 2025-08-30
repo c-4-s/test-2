@@ -39,202 +39,178 @@ ndarray as *X_normalized.npy*
 
 ## Implementation and Explanation
 
-### 1. Define the function
-We first define a function named `alphabet_soup()` with `x` as the parameter representing the input string.  
-
-```python
-def alphabet_soup(x):
-```
-
-### 2. Convert string to list and sort
-Convert the string `x` into a list so that each character can be worked with individually. After this, the list is sorted alphabetically using the `sort()` method.  
-
-```python
-    x = list(x)            
-    x.sort()               
-```
-
-### 3. Initialize a placeholder
-Initialize an empty string `y` which will act as the placeholder for the final result.  
-
-```python
-    y = ""                 
-```
-
-### 4. Build the sorted string
-Use a `for` loop to go through each character in the sorted list. During every iteration, the character is appended to `y`.  
-
-```python
-    for z in x:            
-        y = y + z          
-```
-
-### 5. Print the result
-After the loop, all the characters are combined into one string that is alphabetically arranged. Finally, the function prints the result to display the output.  
-
-```python
-    print(y)               
-```
-
-### 6. Test the function
-The function is tested using the strings `"hello"` and `"hacker"`.  
-
-```python
-alphabet_soup("hello")    
-alphabet_soup("hacker")    
-```
-
-**Sample Output:**  
+### 1. Import NumPy
+The first step is to import the `numpy` library as `np`. This library provides objects and tools for working with arrays.  
 
 ```
-ehllo
-acehkr
+import numpy as np
+```
+
+### 2. Create a random 5x5 array
+`np.random.random((5,5))` generates a 5x5 array with random values between 0 and 1. This array is stored in variable `x`. 
+
+```
+    x = np.random.random((5,55))              
+```
+
+### 3. Compute the mean of the array
+`np.mean(X)` calculates the **mean of all elements** in the array `X`. This value is stored in variable `mean`.
+
+```
+    mean = np.mean(X)                
+```
+
+### 4. Compute the standard deviation of the array
+`np.std(x)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `sd`.
+
+```
+    sd = np.std(X)        
+```
+
+### 5. Normalize the array
+The normalization formula `(X - mean) / sd` is applied element-wise. Each element of `X` has the mean `mean` subtracted, then is divided by the standard deviation `sd`. The resulting normalized array is stored in variable `Z`.
+
+```
+    Z = ((X-mean)/(sd))               
+```
+
+### 6. Save the normalized array
+`np.save("X_normalized.npy", Z)` saves the normalized array `Z` to a file named `"X_normalized.npy"`. This allows the data to be loaded later.
+
+```
+    np.save("X_normalized.npy", Z)
+```
+
+### 7. Load the saved array
+`np.load('X_normalized.npy')` loads the array from the file `X_normalized.npy` and stores it in the variable `data`.
+
+```
+    data = np.load('X_normalized.npy')
+```
+
+### 8. Print the original and normalized arrays
+The `print()` function is used to display the original array `X` and the normalized array `data`. An empty print statement is used to separate the outputs for readability.
+
+```
+    print(X)
+    print(' ')
+    print(data)
+```
+
+**Sample Output (values will vary because of randomness):**  
+
+```
+[[0.67506671 0.01548969 0.34755666 0.61320741 0.66938374]
+ [0.28622405 0.82969895 0.70548245 0.34724348 0.86552085]
+ [0.60718707 0.97320478 0.47984127 0.42497323 0.01499727]
+ [0.83094167 0.93142143 0.96301468 0.98234529 0.84676398]
+ [0.8988588  0.49357715 0.95188524 0.93862153 0.3431964 ]]
+
+[[ 0.11596543 -2.15785765 -1.01309135 -0.09728806  0.09637397]
+ [-1.22452915  0.64904398  0.22082052 -1.01417103  0.77253624]
+ [-0.11804255  1.14376536 -0.55705395 -0.74620579 -2.15955522]
+ [ 0.65332812  0.99972163  1.10863608  1.17527631  0.7078739 ]
+ [ 0.88746534 -0.50970094  1.07026846  1.02454323 -1.02812292]]
 ```
 
 ---
 
-# EMOTICON PROBLEM
+# DIVISIBLE BY 3 PROBLEM
 
 ## Problem Description
-**EMOTICON PROBLEM:** Create a function that changes specific words into emoticons. Given a sentence as a string, replace the words **smile**, **grin**, **sad**, and **mad** with their corresponding emoticons:  
+**DIVISIBLE BY 3 PROBLEM**: Create the following 10 x 10 ndarray.
 
-- `smile` → `:)`  
-- `grin`  → `:D`  
-- `sad`   → `:((`  
-- `mad`   → `>:(`  
+\begin{bmatrix}
+1 & 4 & \cdots & 81 & 100 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+8281 & 8464 & \cdots & 9801 & 10000
+\end{bmatrix}
+
+which are the squares of the first 100 positive integers.
+
+From this ndarray, determine all the elements that are divisible by 3. Save the result as *div_by_3.npy*
 
 ---
 
 ## Implementation and Explanation
 
-### 1. Define the function
-We define a function named `emotify()` with `x` as the parameter representing the input string.  
+### 1. Import NumPy
+The first step is to import the `numpy` library as `np`. This library provides objects and tools for working with arrays.
 
-```python
-def emotify(x):
+```
+    import numpy as np
 ```
 
-### 2. Copy the input string
-Copy the input string `x` into a working variable `y`, which will be used for making replacements.  
+### 2. Create an array from 1 to 100
+`np.arange(1,101,1)` generates a 1D array with values starting from 1 up to 100 (inclusive). This array is stored in variable `arr`.
 
-```python
-    y = x
+```
+    arr = np.arange(1,101,1)
 ```
 
-### 3. Replace "smile" with emoticon
-Check if `"smile"` is in the string. If found, replace it with `:)`.  
+### 3. Square each element
+`arr ** 2` squares each element in the array `arr`. The resulting array is stored in arr_squared.
 
-```python
-    if "smile" in x:
-        for z in ["smile", "Smile", "SMILE"]:
-            y = y.replace(z, ":)")
+```
+    arr_squared = arr ** 2
 ```
 
-### 4. Replace "grin" with emoticon
-Check if `"grin"` is in the string. If found, replace it with `:D`.  
+### 4. Reshape the array into 10x10
+`arr_squared.reshape(10,10)` converts the 1D array of 100 elements into a 2D 10×10 array.
 
-```python
-    if "grin" in x:
-        for z in ["grin", "Grin", "GRIN"]:
-            y = y.replace(z, ":D")
+```
+    arr_squared = arr_squared.reshape(10,10)
 ```
 
-### 5. Replace "sad" with emoticon
-Check if `"sad"` is in the string. If found, replace it with `:((`.  
+### 5. Select elements divisible by 3
+`arr_squared[arr_squared % 3 == 0]` selects only the elements of `arr_squared` that are divisible by 3. The resulting 1D array is stored in div.
 
-```python
-    if "sad" in x:
-        for z in ["sad", "Sad", "SAD"]:
-            y = y.replace(z, ":((")
+```
+    div = arr_squared[arr_squared % 3 == 0]
 ```
 
-### 6. Replace "mad" with emoticon
-Check if `"mad"` is in the string. If found, replace it with `>:(`.  
+### 6. Save the selected elements
+`np.save("div_by_3.npy", div)` saves the array `div` into a file named `"div_by_3.npy"`. This allows the data to be retrieved later. 
 
-```python
-    if "mad" in x:
-        for z in ["mad", "Mad", "MAD"]:
-            y = y.replace(z, ">:(")
+```
+    np.save("div_by_3.npy", div)
 ```
 
-### 7. Print the result
-After processing all keywords, print the final string with the emoticons.  
+### 7. Load the saved array
+`np.load("div_by_3.npy")` loads the array from the file `"div_by_3.npy"` and stores it in `div_final`.
 
-```python
-    print(y)
+```
+    div_final = np.load("div_by_3.npy")
 ```
 
-### 8. Test the function
-Test the function with example strings.  
+### 8. Print the results
+The `print()` function is used to display the squared 10×10 array `arr_squared` and the array of elements divisible by 3 `div_final`. An empty `print()` is used to separate outputs for readability.
 
-```python
-emotify("Make me smile")
-emotify("I am mad")
+```
+    print(arr_squared)
+    print("")
+    print(div_final)
 ```
 
 **Sample Output:**  
 
 ```
-Make me :)
-I am >:(
-```
+[[    1     4     9    16    25    36    49    64    81   100]
+ [  121   144   169   196   225   256   289   324   361   400]
+ [  441   484   529   576   625   676   729   784   841   900]
+ [  961  1024  1089  1156  1225  1296  1369  1444  1521  1600]
+ [ 1681  1764  1849  1936  2025  2116  2209  2304  2401  2500]
+ [ 2601  2704  2809  2916  3025  3136  3249  3364  3481  3600]
+ [ 3721  3844  3969  4096  4225  4356  4489  4624  4761  4900]
+ [ 5041  5184  5329  5476  5625  5776  5929  6084  6241  6400]
+ [ 6561  6724  6889  7056  7225  7396  7569  7744  7921  8100]
+ [ 8281  8464  8649  8836  9025  9216  9409  9604  9801 10000]]
 
----
-
-# UNPACKING LIST PROBLEM
-
-## Problem Description
-**UNPACKING LIST PROBLEM:** Unpack the list `writeyourcodehere` into three variables:  
-
-- `first` → the first element  
-- `middle` → everything between the first and last element  
-- `last` → the last element  
-
-Then print all three variables.  
-
----
-
-## Implementation and Explanation
-
-### 1. Define the list
-Start with the given list.  
-
-```python
-lst = [1, 2, 3, 4, 5, 6]
-```
-
-### 2. Extract the first element
-Assign the first element of the list to the variable `first`.  
-
-```python
-first = lst[0]    # input the first element (index 0) of the list as "first"
-```
-
-### 3. Extract the middle elements
-Assign all elements between the first and last to the variable `middle`.  
-
-```python
-middle = lst[1:-1]    # input the elements between first and last (index 1 to -1) as "middle"
-```
-
-### 4. Extract the last element
-Assign the last element of the list to the variable `last`.  
-
-```python
-last = lst[-1]    # input the last element (-1) as "last"
-```
-
-### 5. Print the results
-Print the three variables to display their values.  
-
-```python
-print("first:", first, " middle:", middle, " last:", last)
-```
-
-**Sample Output:**  
-
-```
-first: 1  middle: [2, 3, 4, 5]  last: 6
+[   9   36   81  144  225  324  441  576  729  900 1089 1296 1521 1764
+ 2025 2304 2601 2916 3249 3600 3969 4356 4761 5184 5625 6084 6561 7056
+ 7569 8100 8649 9216 9801]
 ```
 
 ---
