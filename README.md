@@ -47,10 +47,10 @@ import numpy as np
 ```
 
 ### 2. Create a random 5x5 array
-`np.random.random((5,5))` generates a 5x5 array with random values between 0 and 1. This array is stored in variable `x`. 
+`np.random.random((5,5))` generates a 5x5 array with random values between 0 and 1. This array is stored in variable `X`. 
 
 ```
-    x = np.random.random((5,55))              
+    X = np.random.random((5,5))              
 ```
 
 ### 3. Compute the mean of the array
@@ -61,7 +61,7 @@ import numpy as np
 ```
 
 ### 4. Compute the standard deviation of the array
-`np.std(x)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `sd`.
+`np.std(X)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `sd`.
 
 ```
     sd = np.std(X)        
@@ -93,7 +93,7 @@ The `print()` function is used to display the original array `X` and the normali
 
 ```
     print(X)
-    print(' ')
+    print("")
     print(data)
 ```
 
