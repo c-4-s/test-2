@@ -50,51 +50,51 @@ import numpy as np
 `np.random.random((5,5))` generates a 5x5 array with random values between 0 and 1. This array is stored in variable `X`. 
 
 ```
-    X = np.random.random((5,5))              
+X = np.random.random((5,5))              
 ```
 
 ### 3. Compute the mean of the array
 `np.mean(X)` calculates the **mean of all elements** in the array `X`. This value is stored in variable `mean`.
 
 ```
-    mean = np.mean(X)                
+mean = np.mean(X)                
 ```
 
 ### 4. Compute the standard deviation of the array
 `np.std(X)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `sd`.
 
 ```
-    sd = np.std(X)        
+sd = np.std(X)        
 ```
 
 ### 5. Normalize the array
 The normalization formula `(X - mean) / sd` is applied element-wise. Each element of `X` has the mean `mean` subtracted, then is divided by the standard deviation `sd`. The resulting normalized array is stored in variable `Z`.
 
 ```
-    Z = ((X-mean)/(sd))               
+Z = ((X-mean)/(sd))               
 ```
 
 ### 6. Save the normalized array
 `np.save("X_normalized.npy", Z)` saves the normalized array `Z` to a file named `"X_normalized.npy"`. This allows the data to be loaded later.
 
 ```
-    np.save("X_normalized.npy", Z)
+np.save("X_normalized.npy", Z)
 ```
 
 ### 7. Load the saved array
 `np.load('X_normalized.npy')` loads the array from the file `X_normalized.npy` and stores it in the variable `data`.
 
 ```
-    data = np.load('X_normalized.npy')
+data = np.load('X_normalized.npy')
 ```
 
 ### 8. Print the original and normalized arrays
 The `print()` function is used to display the original array `X` and the normalized array `data`. An empty print statement is used to separate the outputs for readability.
 
 ```
-    print(X)
-    print("")
-    print(data)
+print(X)
+print("")
+print(data)
 ```
 
 **Sample Output (values will vary because of randomness):**  
@@ -143,58 +143,58 @@ From this ndarray, determine all the elements that are divisible by 3. Save the 
 The first step is to import the `numpy` library as `np`. This library provides objects and tools for working with arrays.
 
 ```
-    import numpy as np
+import numpy as np
 ```
 
 ### 2. Create an array from 1 to 100
 `np.arange(1,101,1)` generates a 1D array with values starting from 1 up to 100 (inclusive). This array is stored in variable `arr`.
 
 ```
-    arr = np.arange(1,101,1)
+arr = np.arange(1,101,1)
 ```
 
 ### 3. Square each element
 `arr ** 2` squares each element in the array `arr`. The resulting array is stored in arr_squared.
 
 ```
-    arr_squared = arr ** 2
+arr_squared = arr ** 2
 ```
 
 ### 4. Reshape the array into 10x10
 `arr_squared.reshape(10,10)` converts the 1D array of 100 elements into a 2D 10×10 array.
 
 ```
-    arr_squared = arr_squared.reshape(10,10)
+arr_squared = arr_squared.reshape(10,10)
 ```
 
 ### 5. Select elements divisible by 3
 `arr_squared[arr_squared % 3 == 0]` selects only the elements of `arr_squared` that are divisible by 3. The resulting 1D array is stored in div.
 
 ```
-    div = arr_squared[arr_squared % 3 == 0]
+div = arr_squared[arr_squared % 3 == 0]
 ```
 
 ### 6. Save the selected elements
 `np.save("div_by_3.npy", div)` saves the array `div` into a file named `"div_by_3.npy"`. This allows the data to be retrieved later. 
 
 ```
-    np.save("div_by_3.npy", div)
+np.save("div_by_3.npy", div)
 ```
 
 ### 7. Load the saved array
 `np.load("div_by_3.npy")` loads the array from the file `"div_by_3.npy"` and stores it in `div_final`.
 
 ```
-    div_final = np.load("div_by_3.npy")
+div_final = np.load("div_by_3.npy")
 ```
 
 ### 8. Print the results
 The `print()` function is used to display the squared 10×10 array `arr_squared` and the array of elements divisible by 3 `div_final`. An empty `print()` is used to separate outputs for readability.
 
 ```
-    print(arr_squared)
-    print("")
-    print(div_final)
+print(arr_squared)
+print("")
+print(div_final)
 ```
 
 **Sample Output:**  
