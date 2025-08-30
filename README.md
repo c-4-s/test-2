@@ -120,6 +120,8 @@ The `print()` function is used to display the original array `X` and the normali
 ## Problem Description
 **DIVISIBLE BY 3 PROBLEM**: Create the following 10 x 10 ndarray.
 
+$$
+A = 
 \begin{bmatrix}
 1 & 4 & \cdots & 81 & 100 \\
 \vdots & \vdots & \ddots & \vdots & \vdots \\
@@ -127,6 +129,7 @@ The `print()` function is used to display the original array `X` and the normali
 \vdots & \vdots & \ddots & \vdots & \vdots \\
 8281 & 8464 & \cdots & 9801 & 10000
 \end{bmatrix}
+$$
 
 which are the squares of the first 100 positive integers.
 
