@@ -54,24 +54,24 @@ X = np.random.random((5,5))
 ```
 
 ### 3. Compute the mean of the array
-`np.mean(X)` calculates the **mean of all elements** in the array `X`. This value is stored in variable `mean`.
+`np.mean(X)` calculates the **mean of all elements** in the array `X`. This value is stored in variable `M`.
 
 ```
-mean = np.mean(X)                
+M = np.mean(X)                
 ```
 
 ### 4. Compute the standard deviation of the array
-`np.std(X)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `sd`.
+`np.std(X)` computes the **standard deviation of all elements** in the array `X`. This value is stored in variable `SD`.
 
 ```
-sd = np.std(X)        
+SD = np.std(X)        
 ```
 
 ### 5. Normalize the array
-The normalization formula `(X - mean) / sd` is applied element-wise. Each element of `X` has the mean `mean` subtracted, then is divided by the standard deviation `sd`. The resulting normalized array is stored in variable `Z`.
+The normalization formula `(X - M) / SD` is applied element-wise. Each element of `X` has the mean `M` subtracted, then is divided by the standard deviation `SD`. The resulting normalized array is stored in variable `Z`.
 
 ```
-Z = (X-mean) / sd               
+Z = (X-M) / SD               
 ```
 
 ### 6. Save the normalized array
@@ -85,7 +85,7 @@ np.save("X_normalized.npy", Z)
 `np.load('X_normalized.npy')` loads the array from the file `X_normalized.npy` and stores it in the variable `data`.
 
 ```
-data = np.load('X_normalized.npy')
+data = np.load("X_normalized.npy")
 ```
 
 ### 8. Print the original and normalized arrays
