@@ -71,7 +71,7 @@ sd = np.std(X)
 The normalization formula `(X - mean) / sd` is applied element-wise. Each element of `X` has the mean `mean` subtracted, then is divided by the standard deviation `sd`. The resulting normalized array is stored in variable `Z`.
 
 ```
-Z = ((X-mean)/(sd))               
+Z = (X-mean) / sd               
 ```
 
 ### 6. Save the normalized array
@@ -161,7 +161,7 @@ arr_squared = arr ** 2
 ```
 
 ### 4. Reshape the array into 10x10
-`arr_squared.reshape(10,10)` converts the 1D array of 100 elements into a 2D 10×10 array.
+`arr_squared.reshape(10,10)` reshapes the 1D array of 100 elements into a 2D 10×10 array.
 
 ```
 arr_squared = arr_squared.reshape(10,10)
